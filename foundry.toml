@@ -6,6 +6,7 @@ solc = "0.8.25"
 optimizer = true
 optimizer_runs = 10_000
 via_ir = true
+evm_version = "cancun"
 
 remappings = [
   "@contracts-bedrock/=lib/optimism/packages/contracts-bedrock/src/",
