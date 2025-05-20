@@ -10,7 +10,7 @@ contract DeployChain901Script is Script {
     function run() public {
         vm.broadcast();
 
-        CrossChainPingPong game = new CrossChainPingPong{salt: "pingpong"}();
+        CrossChainPingPong game = new CrossChainPingPong{salt: "pingpong"}(901);
         console.log("Deployed at: ", address(game));
     }
 }

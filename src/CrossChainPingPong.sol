@@ -55,12 +55,14 @@ contract CrossChainPingPong {
 
     /// @dev The current ball on this chain, empty if not present
     PingPongBall public ball;
-
     /**
-     * @notice Since CREATE2 includes initcode, the game address is deterministic with the the starting chain.
+      * @notice Since CREATE2 includes initcode, the game address is deterministic with the the starting chain.
+     * @param _serverChainId The chain that starts with the ball.
      */
-    constructor() {
-      ball = PingPongBall(1, block.chainid, msg.sender);
+    constructor(uint256 _serverChainId) {
+      if (block.chainid == _serverChainId) {
+        ball = PingPongBall(1, block.chainid, msg.sender);
+      }
     }
 
     /**
